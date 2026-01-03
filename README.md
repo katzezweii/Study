@@ -2,26 +2,20 @@
 建立知识体系
 
 ```mermaid
-flowchart TD
-    A["User: 'Cook with available ingredients'"] --> B[Task Planner]
-    B --> C[Search Agent]
-    B --> D[Fridge Agent]
-    B --> E[Display Agent]
+flowchart LR
+    A[Evaluate<br/>Intent Recognition] --> D[Overall<br/>Completion]
+    B[Evaluate<br/>Collaboration] --> D
+    C[Check<br/>Final Output] --> D
     
-    D --> F["Check ingredients:<br/>tomato, pasta, cheese"]
-    F -.->|collaboration| C
-    C --> G["Search recipes with:<br/>tomato, pasta, cheese"]
-    G --> H["Recipe: Pasta with tomato"]
-    H -.->|share result| E
-    E --> I["Display recipe on TV"]
+    D --> E{Result}
+    E -->|All dimensions correct| F[✓ Complete]
+    E -->|Has issues but works| G[⚠ Partial]
+    E -->|Critical failure| H[✗ Failed]
     
-    I --> J{Evaluation}
-    J --> K["Intent: ✓ Correct<br/>Collaboration: ✓ Successful<br/>Overall: ✓ Complete"]
-    
-    style A fill:#e1f5ff
-    style F fill:#fff4e1
-    style H fill:#fff4e1
-    style K fill:#d4edda
-    
-    linkStyle 5,7 stroke:#ff6b6b,stroke-width:2px,stroke-dasharray: 5 5
+    style A fill:#e3f2fd
+    style B fill:#e3f2fd
+    style C fill:#e3f2fd
+    style F fill:#d4edda
+    style G fill:#fff3cd
+    style H fill:#f8d7da
 ```
