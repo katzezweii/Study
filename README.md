@@ -8,7 +8,7 @@ flowchart LR
     C[Check<br/>Final Output] --> D
     
     D --> E{Result}
-    E -->|All dimensions correct| F[✓ Complete]
+    E -->|All conditions met| F[✓ Complete]
     E -->|Has issues but works| G[⚠ Partial]
     E -->|Critical failure| H[✗ Failed]
     
